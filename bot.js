@@ -31,8 +31,3 @@ controller.hears(['hello', 'hi'], 'direct_message,direct_mention,mention', (bot,
         }
     })
 })
-
-controller.hears(['keyword','^pattern$'],['message_received'], (bot, message) => {
-  bot.reply(message,'You used a keyword!')
-
-})
