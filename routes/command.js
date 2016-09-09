@@ -1,6 +1,6 @@
 'use strict'
 
-cosnt _ = require('lodash')
+const _ = require('lodash')
 
 module.exports = (app) => {
   app.get('/reverse', (req, res) => {
