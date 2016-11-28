@@ -2,6 +2,7 @@
 
 const fetch = require('node-fetch')
 const fx = require('money')
+const {formatNumber} = require('humanize-plus')
 
 module.exports = (app) => {
   app.get('/exchange', (req, res) => {
@@ -39,7 +40,7 @@ module.exports = (app) => {
 
         return res.json({
           response_type: 'in_channel',
-          text
+          text: `${formatNumber(text, 2)} ${to.toUpperCase()}`
         })
       })
       .catch(err => {

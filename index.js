@@ -3,7 +3,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const routes = require('./routes')
-require('./bot')
+//require('./bot')
 const app = express()
 
 app.set('port', (process.env.PORT || 5000))
