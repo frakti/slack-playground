@@ -40,7 +40,7 @@ module.exports = (app) => {
 
         return res.json({
           response_type: 'in_channel',
-          text: `${formatNumber(text, 2)} ${to.toUpperCase()}`
+          text: `${formatNumber(+value, 2)} ${from.toUpperCase()} == ${formatNumber(text, 2)} ${to.toUpperCase()}`
         })
       })
       .catch(err => {
