@@ -20,10 +20,10 @@ module.exports = (app) => {
 
     fetch('http://api.fixer.io/latest')
       .then(response => {
-        if (response.ok) {
+        if (!response.ok) {
           return res.json({
             response_type: 'in_channel',
-            text: "Couldn't fetch rates, please try again."
+            text: "Something is wrong with server providing exchange rates, please try again."
           })
         }
 
