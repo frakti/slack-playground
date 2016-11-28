@@ -12,6 +12,8 @@
     "body-parser": "^1.15.2",
     "botkit": "^0.2.2",
     "express": "^4.14.0",
-    "lodash": "^4.15.0"
+    "lodash": "^4.15.0",
+    "money": "^0.2.0",
+    "node-fetch": "^1.6.3"
   }
 }
