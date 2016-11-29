@@ -40,7 +40,7 @@ module.exports = (app) => {
 
         return res.json({
           response_type: 'ephemeral', // in_channel
-          text: `${formatNumber(+result, 2)} ${from.toUpperCase()} == ${formatNumber(text, 2)} ${to.toUpperCase()}`
+          text: `${formatNumber(+value, 2)} ${from.toUpperCase()} == ${formatNumber(result, 2)} ${to.toUpperCase()}`
         })
       })
       .catch(err => {
