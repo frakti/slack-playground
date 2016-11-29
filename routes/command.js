@@ -23,7 +23,7 @@ module.exports = (app) => {
       .then(response => {
         if (!response.ok) {
           return res.json({
-            response_type: 'in_channel', // ephemeral
+            response_type: 'ephemeral', // in_channel
             text: "Something is wrong with server providing exchange rates, please try again."
           })
         }
@@ -39,13 +39,13 @@ module.exports = (app) => {
           .to(to.toUpperCase())
 
         return res.json({
-          response_type: 'in_channel', // ephemeral
+          response_type: 'ephemeral', // in_channel
           text: `${formatNumber(+result, 2)} ${from.toUpperCase()} == ${formatNumber(text, 2)} ${to.toUpperCase()}`
         })
       })
       .catch(err => {
         return res.json({
-          response_type: 'in_channel', // ephemeral
+          response_type: 'ephemeral', // in_channel
           text: "Couldn't fetch rates, please try again."
         })
       })
