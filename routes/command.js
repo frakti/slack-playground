@@ -34,13 +34,13 @@ module.exports = (app) => {
         const [, value, from, to] = pattern.exec(req.query.text)
         fx.rates = rates
 
-        const value = fx(value)
+        const result = fx(value)
           .from(from.toUpperCase())
           .to(to.toUpperCase())
 
         return res.json({
           response_type: 'in_channel', // ephemeral
-          value: `${formatNumber(+value, 2)} ${from.toUpperCase()} == ${formatNumber(text, 2)} ${to.toUpperCase()}`
+          text: `${formatNumber(+result, 2)} ${from.toUpperCase()} == ${formatNumber(text, 2)} ${to.toUpperCase()}`
         })
       })
       .catch(err => {
