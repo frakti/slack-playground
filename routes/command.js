@@ -10,7 +10,7 @@ module.exports = (app) => {
       return res.sendStatus(409)
     }
 
-    const pattern = /([0-1.]+) (.+) to (.+)/
+    const pattern = /([0-9.]+) (.+) to (.+)/
 
     if (!pattern.test(req.query.text)) {
       return res.json({
