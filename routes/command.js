@@ -23,7 +23,7 @@ module.exports = (app) => {
       .then(response => {
         if (!response.ok) {
           return res.json({
-            response_type: 'in_channel',
+            response_type: 'in_channel', // ephemeral
             text: "Something is wrong with server providing exchange rates, please try again."
           })
         }
@@ -34,18 +34,18 @@ module.exports = (app) => {
         const [, value, from, to] = pattern.exec(req.query.text)
         fx.rates = rates
 
-        const text = fx(value)
+        const value = fx(value)
           .from(from.toUpperCase())
           .to(to.toUpperCase())
 
         return res.json({
-          response_type: 'in_channel',
-          text: `${formatNumber(+value, 2)} ${from.toUpperCase()} == ${formatNumber(text, 2)} ${to.toUpperCase()}`
+          response_type: 'in_channel', // ephemeral
+          value: `${formatNumber(+value, 2)} ${from.toUpperCase()} == ${formatNumber(text, 2)} ${to.toUpperCase()}`
         })
       })
       .catch(err => {
         return res.json({
-          response_type: 'in_channel',
+          response_type: 'in_channel', // ephemeral
           text: "Couldn't fetch rates, please try again."
         })
       })
