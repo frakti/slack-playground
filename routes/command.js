@@ -14,7 +14,7 @@ module.exports = (app) => {
 
     if (!pattern.test(req.query.text)) {
       return res.json({
-        response_type: 'in_channel',
+        response_type: 'ephemeral', // in_channel
         text: 'Wrong pattern, try something like: _10 usd to pln_'
       })
     }
